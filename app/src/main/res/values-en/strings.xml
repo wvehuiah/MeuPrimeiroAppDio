@@ -1,6 +1,5 @@
 <resources>
-    <string name="app_name">MeuPrimeiroAppDio</string>
+<!--    <string name="app_name">MeuPrimeiroAppDio</string>-->
     <string name="hello_name">Hello %1$s!</string>
-    <string name="welcome_message">Welcome, %1$s!</string>
-    <string name="login_button">Sign in</string>
+    <string name="selected_language">Selected language: %1$s</string>
 </resources>

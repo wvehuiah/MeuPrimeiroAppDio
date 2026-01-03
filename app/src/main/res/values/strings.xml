@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">MeuPrimeiroAppDio</string>
     <string name="hello_name">Olá %1$s!</string>
-    <string name="welcome_message">Bem-vindo, %1$s!</string>
-    <string name="login_button">Entrar</string>
+    <string name="selected_language">Idioma selecionado: %1$s</string>
 </resources>

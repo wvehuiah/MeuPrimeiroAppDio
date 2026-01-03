@@ -6,7 +6,7 @@ plugins {
 
 android {
     namespace = "br.dev.olimpus.meuprimeiroappdio"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "br.dev.olimpus.meuprimeiroappdio"
@@ -59,6 +59,7 @@ dependencies {
     implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.androidx.compose.material3)
     implementation(libs.androidx.appcompat)
+    implementation(libs.androidx.compose.runtime.saveable)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

@@ -132,7 +132,7 @@ Tags usadas:
 - Se uma string estiver faltando em `values-en` ou `values-es`, o Android faz fallback para `values/`.
 - Se você quiser separar explicitamente pt-BR, use `values-pt-rBR/` (observação: é `pt-rBR`, com `r`).
 
-### 📄 ## Licença
+### 📄 Licença
 
 Este projeto está licenciado sob a Apache License 2.0. Consulte o arquivo `LICENSE`.
 

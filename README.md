@@ -8,9 +8,9 @@
 
 ### 📱 Criando um App Android com Suporte a Vários Idiomas
 
-Projeto desenvolvido no contexto do desafio **“Utilização Prática no Cenário de Microsserviços”**, proposto pela plataforma **DIO (Digital Innovation One)**.
+Projeto desenvolvido no contexto do desafio **“Criando um App Android utilizando o conceito de internacionalização (i18n)”**, proposto pela plataforma **DIO (Digital Innovation One)**.
 
-🔗 [**Descrição oficial do desafio**](https://web.dio.me/lab/docker-utilizacao-pratica-no-cenario-de-microsservicos/learning/01c90219-29e6-46da-bad9-9542f621b9c2)  
+🔗 [**Descrição oficial do desafio**](https://web.dio.me/project/criando-um-app-android-com-suporte-a-varios-idiomas/learning/9ca0e571-7150-4eef-81a7-f0b1e5a31eb8)  
 <sub>Obs.: O acesso ao link requer uma conta ativa na plataforma DIO.</sub>
 
 ---  

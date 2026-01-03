@@ -22,13 +22,18 @@ Projeto desenvolvido no contexto do desafio **“Criando um App Android utilizan
 
 ---
 
-### MeuPrimeiroAppDio (Android • Kotlin • Jetpack Compose)
-
-Projeto Android em Kotlin usando **Jetpack Compose (Material 3)** com **internacionalização (i18n)** e **troca de idioma em runtime** por botões (PT-BR / EN / ES).
+### 🧩 Tecnologias
+**Android | Kotlin | Jetpack Compose (Material 3)**
 
 ---
 
-### ✅ O que este app demonstra
+## MeuPrimeiroAppDio (Android • Kotlin • Jetpack Compose)
+
+Aplicação Android em Kotlin usando **Jetpack Compose (Material 3)** com **internacionalização (i18n)** e **troca de idioma em runtime** por botões (PT-BR / EN / ES).
+
+---
+
+## ✅ O que este app demonstra  
 
 - UI em **Jetpack Compose**
 - Strings externalizadas em `strings.xml`
@@ -36,75 +41,58 @@ Projeto Android em Kotlin usando **Jetpack Compose (Material 3)** com **internac
     - `res/values/` (fallback/padrão)
     - `res/values-en/` (Inglês)
     - `res/values-es/` (Espanhol)
+    - `res/values-pt-rBR/` (Português Brasil explícito)
 - Uso de `stringResource()` no Compose
-- Troca de idioma do app via:
-    - `AppCompatDelegate.setApplicationLocales(LocaleListCompat.forLanguageTags(...))`
-    - `recreate()` para aplicar imediatamente
+- Troca de idioma em runtime sem travar:
+    - o idioma é controlado por **estado** no Compose
+    - um `Context` localizado é aplicado para que `stringResource()` reflita a mudança imediatamente
 
 ---
 
-### 📦 Requisitos
+## 📦 Requisitos
 
 - Android Studio (Giraffe+ recomendado)
-- Kotlin
-- Gradle
+- Kotlin / Gradle
 - Emulator/Device Android
+- SDK instalado compatível com seu `compileSdk` (ex.: API 35)
 
 ---
 
-### 🧩 Dependências principais
+## 🌍 Internacionalização
 
-- Jetpack Compose (Material3)
-- AppCompat (para aplicar locales por app)
+### Estrutura (exemplo)
+- `app/src/main/res/values/strings.xml`
+- `app/src/main/res/values-en/strings.xml`
+- `app/src/main/res/values-es/strings.xml`
+- `app/src/main/res/values-pt-rBR/strings.xml`
 
-No `build.gradle(.kts)` do módulo `app` (exemplo):
-
-```kotlin
-dependencies {
-    implementation("androidx.appcompat:appcompat:1.6.1")
-    // demais libs do Compose via BOM...
-}
-```
-
-### 🎨 Tema (IMPORTANTE)
-
-Para usar ```AppCompatActivity``` (necessário para troca de idioma via AppCompat), o tema precisa herdar de **Theme.AppCompat.**
-
-Em:
-- res/values/themes.xml
-- res/values-night/themes.xml
-
-Exemplo:
-```xml
-<style name="Theme.MeuPrimeiroAppDio" parent="Theme.AppCompat.DayNight.NoActionBar" />
-```
-
-### 🌍 Internacionalização
-
-Estrutura:
-- ```app/src/main/res/values/strings.xml```
-- ```app/src/main/res/values-en/strings.xml```
-- ```app/src/main/res/values-es/strings.xml```
-
-**Exemplo de string com placeholder**  
-```values/strings.xml``` (pt-BR ou fallback):
+### Exemplo de string com placeholder
+  
+`values/strings.xml` (fallback/padrão):
 ```xml
 <resources>
     <string name="hello_name">Olá %1$s!</string>
 </resources>
 ```
 
-```values-en/strings.xml```:
+`values-en/strings.xml`:
 ```xml
 <resources>
     <string name="hello_name">Hello %1$s!</string>
 </resources>
 ```
 
-```values-es/strings.xml```:
+`values-es/strings.xml`:
 ```xml
 <resources>
     <string name="hello_name">¡Hola %1$s!</string>
+</resources>
+```
+
+`values-values-pt-rBR/strings.xml`:
+```xml
+<resources>
+    <string name="hello_name">Olá %1$s!</string>
 </resources>
 ```
 
@@ -114,27 +102,21 @@ Text(text = stringResource(R.string.hello_name, "Android"))
 ```
 
 ### 🔁 Troca de idioma em runtime (botões)
+A troca de idioma é feita em tempo de execução via estado no Compose, aplicando um `Context` localizado.
+Isso evita travamentos e elimina a necessidade de `recreate()`.
 
-Implementação:
-```kotlin
-fun setAppLanguage(langTag: String) {
-    AppCompatDelegate.setApplicationLocales(
-        LocaleListCompat.forLanguageTags(langTag)
-    )
-}
-```
+Exemplo conceitual:
 
-No ```onClick```:
 ```kotlin
-setAppLanguage("pt-BR")
-recreate()
+var langTag by rememberSaveable { mutableStateOf("pt-BR") }
+// ao clicar: langTag = "en" / "es" / "pt-BR"
 ```
 
 Tags usadas:
 
-- ```pt-BR```
-- ```en```
-- ```es```
+- `pt-BR`
+- `en`
+- `es`
 
 ### ▶️ Como rodar
 
@@ -145,10 +127,10 @@ Tags usadas:
 
 ### 🔍 Observações úteis
 
-- Preview **não executa onClick** no modo padrão. Para testar clique:
-    - Rode no emulador/dispositivo, ou
-    - Use ***Interactive Preview*** (quando disponível).
-- Se uma string estiver faltando em values-en ou values-es, o Android faz fallback para values/.
+- Preview do Compose não executa onClick no modo padrão.
+    - Para testar cliques: rode no emulador/dispositivo ou use **Interactive Preview** quando disponível.
+- Se uma string estiver faltando em `values-en` ou `values-es`, o Android faz fallback para `values/`.
+- Se você quiser separar explicitamente pt-BR, use `values-pt-rBR/` (observação: é `pt-rBR`, com `r`).
 
 ### 📄 ## Licença
 

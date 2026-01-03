@@ -6,14 +6,12 @@ plugins {
 
 android {
     namespace = "br.dev.olimpus.meuprimeiroappdio"
-    compileSdk {
-        version = release(36)
-    }
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "br.dev.olimpus.meuprimeiroappdio"
         minSdk = 26
-        targetSdk = 36
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 
@@ -42,9 +40,9 @@ android {
     sourceSets {
         getByName("main") {
             res {
-                srcDirs("src\\main\\res", "src\\main\\res\\values-en",
-                    "src\\main\\res",
-                    "src\\main\\res\\values-es"
+                srcDirs("src/main/res", "src/main/res/values-en",
+                    "src/main/res",
+                    "src/main/res/values-es"
                 )
             }
         }
